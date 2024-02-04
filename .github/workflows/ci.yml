@@ -23,7 +23,7 @@ jobs:
           echo "Testing project..." \
           sleep 15s
   build:
-    needs: test
+    needs: [lint, test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
