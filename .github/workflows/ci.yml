@@ -38,3 +38,19 @@ jobs:
       - name: Publishing
         run: |
           echo "Publishing"
+  e2e-test:
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: E2E Testing
+        run: |
+          echo "E2E Testing"|
+          sleep 20s
+  success:
+    needs: [publish, e2e-test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Successfully deployed"
+        run: |
+          echo "Successfully deployed" \
+          sleep 5s
