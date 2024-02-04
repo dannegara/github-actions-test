@@ -8,7 +8,22 @@ on:
   schedule:
     - cron: "*/5 * * * *" # Every 5 minutes
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Linting
+        run: |
+          echo "Linting project..." \
+          sleep 5s
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Testing
+        run: |
+          echo "Testing project..." \
+          sleep 15s
   build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
