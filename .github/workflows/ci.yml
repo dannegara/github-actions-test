@@ -16,3 +16,10 @@ jobs:
       - name: Build Image
         run: |
           docker build -t web .
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publishing
+        run: |
+          echo "Publishing"
